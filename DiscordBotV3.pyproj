@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>252abbdf-4480-4ed4-99be-69e6d57296bb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DiscordBotV3.py</StartupFile>
+    <StartupFile>DiscordBot.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,8 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DiscordBotV3.py" />
-    <Compile Include="Magic_Program.py" />
+    <Compile Include="DiscordBot.py" />
+    <Compile Include="MagicProgram.py" />
     <Compile Include="WatchMTGPrices.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

@@ -9,7 +9,7 @@ import random
 import discord
 import csv
 #import pandas
-import Magic_Program
+import MagicProgram
 import WatchMTGPrices
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -160,8 +160,34 @@ async def basedTracker(ctx, member: discord.Member = None):
 	#output changed user
 	await ctx.send(output)
 
+@bot.command(name="wabbit", help="uptick Chris wabbit counter")
+async def basedTracker(ctx):
 
+	output = ""
+	count = 0
 
+	#load csv into 2 lists in memory
+	with open("RabbitCount.csv", mode="r", newline="") as RabbitFile:
+		reader = csv.reader(RabbitFile)
+		for user in reader:
+			count = user[0]
+
+	#re-write the csv, but incriment the specified user
+	with open("RabbitCount.csv", mode="w", newline="") as RabbitFile:
+		writer = csv.writer(RabbitFile)
+		writer.writerow(str(int(count) + 1))
+		output = "Rabbit count is NOW: " + str(int(count) + 1)
+	await ctx.send(output)
+
+@bot.command(name="wabbitCount", help="Check a Chris's Rabbit count")
+async def rabbitTracker(ctx):		
+	with open("RabbitCount.csv", mode="r", newline="") as RabbitFile:
+		reader = csv.reader(RabbitFile)
+		for line in reader:
+			output = ("Chris's wabbit count: " + str(line[0]))
+				
+	await ctx.send(output)
+	
 @bot.event
 async def on_ready():
 	membersToAdd = []
@@ -189,7 +215,7 @@ async def on_ready():
 				if user == "":
 					membersToAdd.append(member)
 					user = "none"
-					
+		
 	#append the users mentioned to the list
 	with open("BasedCount.csv", mode="a+", newline="") as BasedFile:
 		writer = csv.writer(BasedFile)
