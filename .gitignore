@@ -1,2 +1,6 @@
-# Visual Studio 2015/2017/2019 cache/options directory
-.vs/
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.sqlite
+*.suo
